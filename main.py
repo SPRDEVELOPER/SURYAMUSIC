@@ -387,18 +387,12 @@ async def start_handler(_, message):
 
     buttons = [
         [
-            InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {OWNER_text}", url="https://t.me/VK_MIKEY")
-        ],
-        [
-            InlineKeyboardButton(f"💬 {MANAGER_text}", url="https://t.me/VK_MIKEY"),
-            InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
-        ]
+        
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
 
     await message.reply_animation(
-        animation="https://files.catbox.moe/zgndhz.jpg",
+        animation="https://frozen-imageapi.lagendplayersyt.workers.dev/file/2e483e17-05cb-45e2-b166-1ea476ce9521.mp4",
         caption=caption,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=reply_markup
@@ -442,13 +436,6 @@ async def go_back_callback(_, callback_query):
 
     buttons = [
         [
-            InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
-        ],
-        [
-            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
-            InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
-        ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
 
