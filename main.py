@@ -369,8 +369,8 @@ async def start_handler(_, message):
     user_link = f"[{styled_name}](tg://user?id={user_id})"
 
     add_me_text = to_bold_unicode("Add Me")
-    updates_text = to_bold_unicode("Updates")
-    support_text = to_bold_unicode("Support")
+    Owner_text = to_bold_unicode("Owner")
+    Manager_text = to_bold_unicode("Manager")
     help_text = to_bold_unicode("Help")
 
     caption = (
@@ -388,10 +388,10 @@ async def start_handler(_, message):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {OWNER_text}", url="https://t.me/VK_MIKEY")
+            InlineKeyboardButton(f"📢 {Owner_text}", url="https://t.me/VK_MIKEY")
         ],
         [
-            InlineKeyboardButton(f"💬 {MANAGER_text}", url="https://t.me/VK_MIKEY"),
+            InlineKeyboardButton(f"💬 {Manager_text}", url="https://t.me/VK_MIKEY"),
             InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
         ]
     ]
@@ -424,8 +424,8 @@ async def go_back_callback(_, callback_query):
     user_link = f"[{styled_name}](tg://user?id={user_id})"
 
     add_me_text = to_bold_unicode("Add Me")
-    updates_text = to_bold_unicode("Updates")
-    support_text = to_bold_unicode("Support")
+    Owner_text = to_bold_unicode("Owner")
+    Manager_text = to_bold_unicode("Manager")
     help_text = to_bold_unicode("Help")
 
     caption = (
@@ -443,10 +443,10 @@ async def go_back_callback(_, callback_query):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {OWNER_text}", url="https://t.me/VK_MIKEY")
+            InlineKeyboardButton(f"📢 {Owner_text}", url="https://t.me/VK_MIKEY")
         ],
         [
-            InlineKeyboardButton(f"💬 {MANAGER_text}", url="https://t.me/VK_MIKEY"),
+            InlineKeyboardButton(f"💬 {Manager_text}", url="https://t.me/VK_MIKEY"),
             InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
         ]
     ]
@@ -559,7 +559,7 @@ async def play_handler(_, message: Message):
 
     # If replying to an audio/video message, handle local playback
     if message.reply_to_message and (message.reply_to_message.audio or message.reply_to_message.video):
-        processing_message = await message.reply("🦋")
+        processing_message = await message.reply("")
 
         # Fetch fresh media reference and download
         orig = message.reply_to_message
@@ -1501,38 +1501,6 @@ async def restart_bot():
     except Exception as e:
         logger.error(f"Error calling local restart endpoint: {e}")
 
-async def frozen_check_loop(bot_username: str):
-    while True:
-        try:
-            # 1) send the check command
-            await assistant.send_message(bot_username, "/Mikey_check")
-            logger.info(f"Sent /Mikey_check to @{bot_username}")
-
-            # 2) poll for a reply for up to 30 seconds
-            deadline = time.time() + 30
-            got_ok = False
-
-            while time.time() < deadline:
-                async for msg in assistant.get_chat_history(bot_username, limit=1):
-                    text = msg.text or ""
-                    if "frozen check successful ✨" in text.lower():
-                        got_ok = True
-                        logger.info("Received frozen check confirmation.")
-                        break
-                if got_ok:
-                    break
-                await asyncio.sleep(3)
-
-            # 3) if no confirmation, restart
-            if not got_ok:
-                logger.warning("No frozen check reply—restarting bot.")
-                await restart_bot()
-
-        except Exception as e:
-            logger.error(f"Error in frozen_check_loop: {e}")
-
-        await asyncio.sleep(60)
-
 
 
 
@@ -1555,39 +1523,10 @@ if __name__ == "__main__":
         sys.exit(1)
 
     me = bot.get_me()
-    BOT_NAME = me.first_name or "Frozen Music"
-    BOT_USERNAME = me.username or os.getenv("BOT_USERNAME", "vcmusiclubot")
-    BOT_LINK = f"https://t.me/{BOT_USERNAME}"
+    BOT_NAME = me.first_name or "Mikey Music"
+    BOT_USERNAME = me.username or os.getenv("BOT_USER", "@MIKEY_SONG_BOT")
+    BOT_LINK = f"https://t.me/MIKEY_SONG_BOT"
 
     logger.info(f"✅ Bot Name: {BOT_NAME!r}")
     logger.info(f"✅ Bot Username: {BOT_USERNAME}")
     logger.info(f"✅ Bot Link: {BOT_LINK}")
-
-    # start the frozen‑check loop (no handler registration needed)
-    asyncio.get_event_loop().create_task(frozen_check_loop(BOT_USERNAME))
-
-    if not assistant.is_connected:
-        logger.info("Assistant not connected; starting assistant client...")
-        assistant.run()
-        logger.info("Assistant client connected.")
-
-    try:
-        assistant_user = assistant.get_me()
-        ASSISTANT_USERNAME = assistant_user.username
-        ASSISTANT_CHAT_ID = assistant_user.id
-        logger.info(f"✨ Assistant Username: {ASSISTANT_USERNAME}")
-        logger.info(f"💕 Assistant Chat ID: {ASSISTANT_CHAT_ID}")
-
-        asyncio.get_event_loop().run_until_complete(precheck_channels(assistant))
-        logger.info("✅ Assistant precheck completed.")
-
-    except Exception as e:
-        logger.error(f"❌ Failed to fetch assistant info: {e}")
-
-    logger.info("→ Entering idle() (long-polling)")
-    idle()
-
-    bot.stop()
-    logger.info("Bot stopped.")
-    logger.info("✅ All services are up and running. Bot started successfully.")
-
