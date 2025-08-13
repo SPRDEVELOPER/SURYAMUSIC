@@ -316,8 +316,8 @@ async def fetch_youtube_link_backup(query):
     except Exception as e:
         raise Exception(f"Backup Search API error: {e}")
     
-BOT_NAME = os.environ.get("BOT_NAME", "Frozen Music")
-BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/vcmusiclubot")
+BOT_NAME = os.environ.get("BOT_NAME", "SURYA MUSIC")
+BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/ZENIN_MUSICS_BOT")
 
 from pyrogram.errors import UserAlreadyParticipant, RPCError
 
@@ -361,7 +361,7 @@ def to_bold_unicode(text: str) -> str:
             bold_text += char
     return bold_text
 
-@bot.on_message(filters.command("VK"))
+@bot.on_message(filters.command("start"))
 async def start_handler(_, message):
     user_id = message.from_user.id
     raw_name = message.from_user.first_name or ""
@@ -635,7 +635,7 @@ async def play_handler(_, message: Message):
 
 async def process_play_command(message: Message, query: str):
     chat_id = message.chat.id
-    processing_message = await message.reply("❄️")
+    processing_message = await message.reply("🦋")
 
     # --- ensure assistant is in the chat before we queue/play anything ----
     status = await is_assistant_in_chat(chat_id)
@@ -852,7 +852,7 @@ async def update_progress_caption(
             InlineKeyboardButton(text="▢", callback_data="stop")
         ]
         progress_button = InlineKeyboardButton(text=progress_bar, callback_data="progress")
-        playlist_button = InlineKeyboardButton(text="➕ᴀᴅᴅ тσ ρℓαυℓιѕт➕", callback_data="add_to_playlist")
+        playlist_button = InlineKeyboardButton(text="➕ ᴍɪᴋᴇʏ ᴍᴜꜱɪᴄ ➕", callback_data="add_to_playlist")
 
         new_keyboard = InlineKeyboardMarkup([
             control_row,
@@ -920,7 +920,7 @@ async def fallback_local_playback(chat_id: int, message: Message, song_info: dic
         one_line = _one_line_title(song_info["title"])
         base_caption = (
             "<blockquote>"
-            "<b>🎧 Frozen ✘ Music Streaming</b> (Local Playback)\n\n"
+            "<b>🎧 Mikey ✘ Music Streaming</b> (Local Playback)\n\n"
             f"❍ <b>Title:</b> {one_line}\n"
             f"❍ <b>Requested by:</b> {song_info['requester']}"
             "</blockquote>"
