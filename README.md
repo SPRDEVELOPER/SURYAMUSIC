@@ -32,22 +32,11 @@
 </p>
 
 
-
-
-## ⚡ One-click Setup
-
-<p align="center">
-<a href="https://github.com/kustbots/frozenvcmusicbot/fork"><img src="https://img.shields.io/badge/-Fork%20Repo-black?style=for-the-badge&logo=github"></a>
-</p>
-
----
-
 ## 🛠️ Required environment variables
 
 
 
 
-**𝙏𝙀𝙎𝙏 𝘽𝙊𝙏 ➣ [frzoen music](https://t.me/vcmusiclubot)**
 
 
 
@@ -114,12 +103,3 @@
     ─「 sᴜᴩᴩᴏʀᴛ 」─
 </h3>
 
-<p align="center">
-<a href="https://t.me/Frozensupport1"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
-</p>
-
-<p align="center">
-<a href="https://t.me/Frozensupport1"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
-</p>
-
-- <b> _sᴩᴇᴄɪᴀʟ ᴛʜᴀɴᴋs ᴛᴏ [KustBots](https://github.com/kustbots) ғᴏʀ [ᴍᴜsɪᴄ ʙᴏᴛ](https://github.com/kustbots/frozenvcmusicbot)_</b>
