@@ -443,10 +443,10 @@ async def go_back_callback(_, callback_query):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
+            InlineKeyboardButton(f"📢 {OWNER_text}", url="https://t.me/VK_MIKEY")
         ],
         [
-            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
+            InlineKeyboardButton(f"💬 {MANAGER_text}", url="https://t.me/VK_MIKEY"),
             InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
         ]
     ]
@@ -852,7 +852,7 @@ async def update_progress_caption(
             InlineKeyboardButton(text="▢", callback_data="stop")
         ]
         progress_button = InlineKeyboardButton(text=progress_bar, callback_data="progress")
-        playlist_button = InlineKeyboardButton(text="➕ ᴍɪᴋᴇʏ ᴍᴜꜱɪᴄ ➕", callback_data="add_to_playlist")
+        playlist_button = InlineKeyboardButton(text="🦋 ᴍɪᴋᴇʏ ᴍᴜꜱɪᴄ 🦋", callback_data="add_to_playlist")
 
         new_keyboard = InlineKeyboardMarkup([
             control_row,
@@ -882,7 +882,7 @@ async def update_progress_caption(
 
 
 
-LOG_CHAT_ID = "@frozenmusiclogs"
+LOG_CHAT_ID = "@ZENINMUSICBOTS"
 
 async def fallback_local_playback(chat_id: int, message: Message, song_info: dict):
     playback_mode[chat_id] = "local"
