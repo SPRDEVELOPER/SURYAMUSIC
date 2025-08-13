@@ -3,7 +3,7 @@
 </h2>
 
 <p align="center">
-  <img src="https://files.catbox.moe/836l2k.jpg">
+  <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpaperbat.com%2F4k-music-wallpapers&psig=AOvVaw3zeW6oMa750-g2Mxu9wVo9&ust=1755134114520000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCNjh9bDOho8DFQAAAAAdAAAAABAE">
 </p>
 <p align="center">
 <a href="https://github.com/kustbots//frozenvcmusicbot/stargazers"><img src="https://img.shields.io/github/stars/prashantsahlot/frozenvcmusicbot?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
