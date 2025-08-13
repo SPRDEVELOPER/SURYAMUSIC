@@ -1,5 +1,5 @@
 <h2 align="center">
-    ──「 ⛦🦋 Frozen Music 🦋⛦ 」──
+    ──「 ⛦🦋 SURYA MUSIC 🦋⛦ 」──
 </h2>
 
 <p align="center">
@@ -59,7 +59,7 @@
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʟᴏᴄᴀʟ ʜᴏsᴛ/ ᴠᴘs 」─
 </h3>
 
-- Get your [Necessary Variables](https://github.com/kustbots/frozenvcmusicbot/blob/master/frozen.env)
+- Get your [Necessary Variables](https://github.com/SPRDEVELOPER/SURYAMUSIC/blob/main/surya.env)
 - <p align="center">
 <a href="https://www.youtube.com/watch?v=LSlKMWmhh20"><img src="https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube" alt="YouTube Tutorial"/></a>
 </p>
