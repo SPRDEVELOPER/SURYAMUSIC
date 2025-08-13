@@ -1505,8 +1505,8 @@ async def frozen_check_loop(bot_username: str):
     while True:
         try:
             # 1) send the check command
-            await assistant.send_message(bot_username, "/frozen_check")
-            logger.info(f"Sent /frozen_check to @{bot_username}")
+            await assistant.send_message(bot_username, "/Mikey_check")
+            logger.info(f"Sent /Mikey_check to @{bot_username}")
 
             # 2) poll for a reply for up to 30 seconds
             deadline = time.time() + 30
