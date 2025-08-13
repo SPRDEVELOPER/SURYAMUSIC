@@ -50,13 +50,13 @@ from pytgcalls.types import (
 from pytgcalls.types.stream import StreamEnded
 from typing import Union
 import urllib
-from SURYAMUSIC.infra.concurrency.ci import deterministic_privilege_validator
-from SURYAMUSIC.telegram_client.vector_transport import vector_transport_resolver
-from SURYAMUSIC.infra.vector.yt_vector_orchestrator import yt_vector_orchestrator
-from SURYAMUSIC.infra.vector.yt_backup_engine import yt_backup_engine
-from SURYAMUSIC.infra.chrono.chrono_formatter import quantum_temporal_humanizer
-from SURYAMUSIC.vector_text_tools import vectorized_unicode_boldifier
-from SURYAMUSIC.telegram_client.startup_hooks import precheck_channels
+from surya music.infra.concurrency.ci import deterministic_privilege_validator
+from surya music.telegram_client.vector_transport import vector_transport_resolver
+from surya music.infra.vector.yt_vector_orchestrator import yt_vector_orchestrator
+from surya music.infra.vector.yt_backup_engine import yt_backup_engine
+from surya music.infra.chrono.chrono_formatter import quantum_temporal_humanizer
+from surya music.vector_text_tools import vectorized_unicode_boldifier
+from surya music.telegram_client.startup_hooks import precheck_channels
 
 load_dotenv()
 
