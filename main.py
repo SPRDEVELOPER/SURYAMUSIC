@@ -50,13 +50,13 @@ from pytgcalls.types import (
 from pytgcalls.types.stream import StreamEnded
 from typing import Union
 import urllib
-from surya music.infra.concurrency.ci import deterministic_privilege_validator
-from surya music.telegram_client.vector_transport import vector_transport_resolver
-from surya music.infra.vector.yt_vector_orchestrator import yt_vector_orchestrator
-from surya music.infra.vector.yt_backup_engine import yt_backup_engine
-from surya music.infra.chrono.chrono_formatter import quantum_temporal_humanizer
-from surya music.vector_text_tools import vectorized_unicode_boldifier
-from surya music.telegram_client.startup_hooks import precheck_channels
+from FrozenMusic.infra.concurrency.ci import deterministic_privilege_validator
+from FrozenMusic.telegram_client.vector_transport import vector_transport_resolver
+from FrozenMusic.infra.vector.yt_vector_orchestrator import yt_vector_orchestrator
+from FrozenMusic.infra.vector.yt_backup_engine import yt_backup_engine
+from FrozenMusic.infra.chrono.chrono_formatter import quantum_temporal_humanizer
+from FrozenMusic.vector_text_tools import vectorized_unicode_boldifier
+from FrozenMusic.telegram_client.startup_hooks import precheck_channels
 
 load_dotenv()
 
@@ -388,17 +388,17 @@ async def start_handler(_, message):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
+            InlineKeyboardButton(f"📢 {OWNER_text}", url="https://t.me/VK_MIKEY")
         ],
         [
-            InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
+            InlineKeyboardButton(f"💬 {MANAGER_text}", url="https://t.me/VK_MIKEY"),
             InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
 
     await message.reply_animation(
-        animation="https://frozen-imageapi.lagendplayersyt.workers.dev/file/2e483e17-05cb-45e2-b166-1ea476ce9521.mp4",
+        animation="https://files.catbox.moe/zgndhz.jpg",
         caption=caption,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=reply_markup
@@ -635,7 +635,7 @@ async def play_handler(_, message: Message):
 
 async def process_play_command(message: Message, query: str):
     chat_id = message.chat.id
-    processing_message = await message.reply("🦋")
+    processing_message = await message.reply("❄️")
 
     # --- ensure assistant is in the chat before we queue/play anything ----
     status = await is_assistant_in_chat(chat_id)
@@ -812,8 +812,8 @@ def format_time(seconds: float) -> str:
 def get_progress_bar_styled(elapsed: float, total: float, bar_length: int = 14) -> str:
     """
     Build a progress bar string in the style:
-      elapsed_time  <dashes>🦋<dashes>  total_time
-    For example: 0:30 —🦋———— 3:09
+      elapsed_time  <dashes>❄️<dashes>  total_time
+    For example: 0:30 —❄️———— 3:09
     """
     if total <= 0:
         return "Progress: N/A"
@@ -823,7 +823,7 @@ def get_progress_bar_styled(elapsed: float, total: float, bar_length: int = 14) 
         marker_index = bar_length - 1
     left = "━" * marker_index
     right = "─" * (bar_length - marker_index - 1)
-    bar = left + "🦋" + right
+    bar = left + "❄️" + right
     return f"{format_time(elapsed)} {bar} {format_time(total)}"
 
 
@@ -1590,5 +1590,4 @@ if __name__ == "__main__":
     bot.stop()
     logger.info("Bot stopped.")
     logger.info("✅ All services are up and running. Bot started successfully.")
-
 
