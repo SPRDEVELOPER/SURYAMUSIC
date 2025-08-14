@@ -369,7 +369,7 @@ async def start_handler(_, message):
     user_link = f"[{styled_name}](tg://user?id={user_id})"
 
     add_me_text = to_bold_unicode("Add Me")
-    updates_text = to_bold_unicode("Updates")
+    updates_text = to_bold_unicode("owner")
     support_text = to_bold_unicode("Support")
     help_text = to_bold_unicode("Help")
 
@@ -388,7 +388,7 @@ async def start_handler(_, message):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
+            InlineKeyboardButton(f"📢 {owner_text}", url="https://t.me/VK_MIKEY")
         ],
         [
             InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
@@ -398,7 +398,7 @@ async def start_handler(_, message):
     reply_markup = InlineKeyboardMarkup(buttons)
 
     await message.reply_animation(
-        animation="https://frozen-imageapi.lagendplayersyt.workers.dev/file/2e483e17-05cb-45e2-b166-1ea476ce9521.mp4",
+        animation="https://files.catbox.moe/zgndhz.jpg",
         caption=caption,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=reply_markup
@@ -424,7 +424,7 @@ async def go_back_callback(_, callback_query):
     user_link = f"[{styled_name}](tg://user?id={user_id})"
 
     add_me_text = to_bold_unicode("Add Me")
-    updates_text = to_bold_unicode("Updates")
+    updates_text = to_bold_unicode("owner")
     support_text = to_bold_unicode("Support")
     help_text = to_bold_unicode("Help")
 
@@ -443,7 +443,7 @@ async def go_back_callback(_, callback_query):
     buttons = [
         [
             InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/vibeshiftbots")
+            InlineKeyboardButton(f"📢 {updates_text}", url="https://t.me/VK_MIKEY")
         ],
         [
             InlineKeyboardButton(f"💬 {support_text}", url="https://t.me/Frozensupport1"),
@@ -559,7 +559,7 @@ async def play_handler(_, message: Message):
 
     # If replying to an audio/video message, handle local playback
     if message.reply_to_message and (message.reply_to_message.audio or message.reply_to_message.video):
-        processing_message = await message.reply("❄️")
+        processing_message = await message.reply("🦋")
 
         # Fetch fresh media reference and download
         orig = message.reply_to_message
@@ -635,7 +635,7 @@ async def play_handler(_, message: Message):
 
 async def process_play_command(message: Message, query: str):
     chat_id = message.chat.id
-    processing_message = await message.reply("❄️")
+    processing_message = await message.reply("")
 
     # --- ensure assistant is in the chat before we queue/play anything ----
     status = await is_assistant_in_chat(chat_id)
@@ -812,8 +812,8 @@ def format_time(seconds: float) -> str:
 def get_progress_bar_styled(elapsed: float, total: float, bar_length: int = 14) -> str:
     """
     Build a progress bar string in the style:
-      elapsed_time  <dashes>❄️<dashes>  total_time
-    For example: 0:30 —❄️———— 3:09
+      elapsed_time  <dashes>🦋<dashes>  total_time
+    For example: 0:30 —🦋———— 3:09
     """
     if total <= 0:
         return "Progress: N/A"
@@ -823,7 +823,7 @@ def get_progress_bar_styled(elapsed: float, total: float, bar_length: int = 14) 
         marker_index = bar_length - 1
     left = "━" * marker_index
     right = "─" * (bar_length - marker_index - 1)
-    bar = left + "❄️" + right
+    bar = left + "🦋" + right
     return f"{format_time(elapsed)} {bar} {format_time(total)}"
 
 
@@ -852,7 +852,7 @@ async def update_progress_caption(
             InlineKeyboardButton(text="▢", callback_data="stop")
         ]
         progress_button = InlineKeyboardButton(text=progress_bar, callback_data="progress")
-        playlist_button = InlineKeyboardButton(text="➕ᴀᴅᴅ тσ ρℓαυℓιѕт➕", callback_data="add_to_playlist")
+        playlist_button = InlineKeyboardButton(text="🦋 MIKEY MUSIC 🦋", callback_data="add_to_playlist")
 
         new_keyboard = InlineKeyboardMarkup([
             control_row,
@@ -920,7 +920,7 @@ async def fallback_local_playback(chat_id: int, message: Message, song_info: dic
         one_line = _one_line_title(song_info["title"])
         base_caption = (
             "<blockquote>"
-            "<b>🎧 Frozen ✘ Music Streaming</b> (Local Playback)\n\n"
+            "<b>🎧 Mikey ✘ Music Streaming</b> (Local Playback)\n\n"
             f"❍ <b>Title:</b> {one_line}\n"
             f"❍ <b>Requested by:</b> {song_info['requester']}"
             "</blockquote>"
@@ -1254,11 +1254,11 @@ async def skip_handler(client, message):
     # Check for next song
     if not chat_containers.get(chat_id):
         await status_message.edit(
-            f"⏩ Skipped **{skipped_song['title']}**.\n\n😔 No more songs in the queue."
+            f"⏩ Skipped **{skipped_song['title']}**.\n\n😔 song avolotha poo da."
         )
     else:
         await status_message.edit(
-            f"⏩ Skipped **{skipped_song['title']}**.\n\n💕 Playing the next song..."
+            f"⏩ Skipped **{skipped_song['title']}**.\n\n💕 Adutha Song Varuthu..."
         )
         await skip_to_next_song(chat_id, status_message)
 
@@ -1505,8 +1505,8 @@ async def frozen_check_loop(bot_username: str):
     while True:
         try:
             # 1) send the check command
-            await assistant.send_message(bot_username, "/frozen_check")
-            logger.info(f"Sent /frozen_check to @{bot_username}")
+            await assistant.send_message(bot_username, "/Mikey_check")
+            logger.info(f"Sent /Mikey_check to @{bot_username}")
 
             # 2) poll for a reply for up to 30 seconds
             deadline = time.time() + 30
@@ -1515,7 +1515,7 @@ async def frozen_check_loop(bot_username: str):
             while time.time() < deadline:
                 async for msg in assistant.get_chat_history(bot_username, limit=1):
                     text = msg.text or ""
-                    if "frozen check successful ✨" in text.lower():
+                    if "Mikey check successful 🦋" in text.lower():
                         got_ok = True
                         logger.info("Received frozen check confirmation.")
                         break
