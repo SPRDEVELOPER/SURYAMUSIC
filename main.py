@@ -1154,7 +1154,7 @@ async def stop_handler(client, message):
         if "not in a call" in str(e).lower():
             await message.reply("❌ The bot is not currently in a voice chat.")
         else:
-            await message.reply(f"❌ An error occurred while leaving the voice chat: {str(e)}\n\nSupport: @frozensupport1")
+            await message.reply(f"❌ An error occurred while leaving the voice chat: {str(e)}\n\nSupport: @VK_MIKEY")
         return
 
     # Clear the song queue
@@ -1304,7 +1304,7 @@ async def reboot_handler(_, message):
 
         await message.reply("♻️ Rebooted for this chat. All data for this chat has been cleared.")
     except Exception as e:
-        await message.reply(f"❌ Failed to reboot for this chat. Error: {str(e)}\n\n support - @frozensupport1")
+        await message.reply(f"❌ Failed to reboot for this chat. Error: {str(e)}\n\n support - @VK_MIKEY")
 
 
 
@@ -1400,9 +1400,9 @@ async def broadcast_handler(_, message):
 
 
 
-@bot.on_message(filters.command("frozen_check"))
-async def frozen_check_command(client: Client, message):
-    await message.reply_text("frozen check successful ✨")
+@bot.on_message(filters.command(""))
+async def check_command(client: Client, message):
+    await message.reply_text("Mikey")
 
 
 
